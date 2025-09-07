@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit & Upload Resume</title>
+    <link rel="stylesheet" href="upload_resume.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Profile & Upload Resume</h2>
+
+        <!-- User Details Form -->
+        <form id="resumeForm" action="upload_resume.php" method="POST" enctype="multipart/form-data">
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+
+            <!-- Resume Upload -->
+            <label for="resume">Upload Resume (PDF/DOC):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+            <button type="submit" name="submit">Upload Resume</button>
+        </form>
+
+        <!-- Resume Preview -->
+        <div id="preview"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

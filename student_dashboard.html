@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="./student_dashboard.css">
+    <script defer src="./student_dashboard.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Student Dashboard</h2>
+        <ul>
+            <li onclick="loadContent('Application.html')">Application Form</li>
+            <li onclick="loadContent('apply_job.html')">Apply for Job</li>
+            <li onclick="loadContent('upload_resume.html')">Edit & Upload Resume</li>
+            <li onclick="loadContent('view_schedule.html')">View Placement Schedule</li>
+            <li onclick="loadContent('download_offer.html')">Download Offer Letters</li>
+            <li onclick="loadContent('track_status.html')">Track Application Status</li>
+            <li onclick="loadContent('announcements.html')">Notifications & Announcements</li>
+            <li onclick="loadContent('student_settings.html')">Settings & Logout</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 id="section-title">Dashboard Overview</h1>
+        <div id="section-content">
+            <p>Select an option from the sidebar to view details.</p>
+        </div>
+    </div>
+
+</body>
+<script>
+    function loadContent(page) {
+      fetch(page)
+        .then(response => response.text())
+        .then(html => {
+          const contentDiv = document.getElementById("section-content");
+  
+          // Load HTML
+          contentDiv.innerHTML = html;
+  
+          // Execute all <script> tags
+          const scripts = contentDiv.querySelectorAll("script");
+          scripts.forEach(oldScript => {
+            const newScript = document.createElement("script");
+            if (oldScript.src) {
+              newScript.src = oldScript.src;
+            } else {
+              newScript.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(newScript);
+          });
+        })
+        .catch(err => console.error("Error loading content:", err));
+    }
+  </script>
+  
+</html>

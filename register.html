@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration | Training & Placement</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Student Registration</h2>
+        <form id="registerForm">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="studentID" placeholder="Student ID" required>
+            <div class="form-group"></label>
+                <select id="program" name="program" required aria-placeholder="branch">
+                <option value="select">Branch</option>
+                <option value="btech">CSE(AIML)</option>
+                <option value="mtech">Computer</option>
+                <option value="phd">Electronics & Telecommunication</option>
+                <option value="phd">Chemical</option>
+                <option value="phd">Mechanicaln</option>
+                <option value="phd">Civil</option>
+            </select>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already registered?  <a href="student_login.html">Login here</a></p>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
